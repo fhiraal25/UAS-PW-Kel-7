@@ -1,0 +1,995 @@
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .8s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .8s ease-out, visibility 0s linear .0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Spinner End ***/
+
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    display: flex;
+    width: 45px;
+    height: 45px;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    z-index: 99;
+}
+
+
+/*** Button Start ***/
+
+.btn {
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-sm-square {
+    width: 34px;
+    height: 34px;
+}
+
+.btn-md-square {
+    width: 44px;
+    height: 44px;
+}
+
+.btn-lg-square {
+    width: 56px;
+    height: 56px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-md-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+}
+
+.btn-primary-outline-0 {
+    border: 0;
+    color: var(--bs-white) !important;
+}
+
+.btn-light-outline-0 {
+    border: 0;
+    color: var(--bs-primary) !important;
+}
+
+.btn-primary-outline-0:hover {
+    background: var(--bs-secondary) !important;
+    color: var(--bs-white) !important;
+}
+
+.btn-light-outline-0:hover {
+    background: var(--bs-secondary) !important;
+    color: var(--bs-white) !important;
+}
+
+
+/*** Topbar Start ***/
+
+.sticky-top {
+    transition: 0.5s;
+    background: var(--bs-white);
+}
+
+.topbar {
+    padding: 10px 0;
+    background: var(--bs-secondary) !important;
+}
+
+
+/*** Topbar End ***/
+
+
+/*** Navbar Start ***/
+
+.navbar .navbar-nav .nav-link {
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: .5s;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active,
+.sticky-top.bg-white .navbar .navbar-nav .nav-link:hover,
+.sticky-top.bg-white .navbar .navbar-nav .nav-link.active {
+    color: var(--bs-primary);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (min-width: 1200px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        visibility: hidden;
+        top: 100%;
+        transform: rotateX(-75deg);
+        transform-origin: 0% 0%;
+        border: 0;
+        transition: .5s;
+        opacity: 0;
+    }
+}
+
+.dropdown .dropdown-menu a:hover {
+    background: var(--bs-secondary);
+    color: var(--bs-primary);
+}
+
+.navbar .nav-item:hover .dropdown-menu {
+    transform: rotateX(0deg);
+    visibility: visible;
+    background: var(--bs-light) !important;
+    border-radius: 10px !important;
+    transition: .5s;
+    opacity: 1;
+}
+
+@media (min-width: 1200px) {
+    .navbar .navbar-collapse .border-top {
+        border-top: none !important;
+    }
+}
+
+
+/*** Carousel Start ***/
+
+.carousel-item {
+    position: relative;
+    min-height: 100vh
+}
+
+.carousel-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-item .carousel-caption {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, 0.5));
+    background-size: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0;
+}
+
+.carousel-control-prev .carousel-control-prev-icon,
+.carousel-control-next .carousel-control-next-icon {
+    background: transparent;
+}
+
+#carouselId .carousel-indicators {
+    padding-bottom: 30px;
+}
+
+#carouselId .carousel-indicators li {
+    border-top: 10px solid var(--bs-white);
+    border-bottom: 10px solid var(--bs-white);
+    border-right: 5px solid var(--bs-white);
+    border-left: 5px solid var(--bs-white);
+    margin-right: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+#carouselId .carousel-indicators li.active {
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    border-right: 15px solid var(--bs-primary);
+    border-left: 15px solid var(--bs-primary);
+}
+
+
+/*** Carousel End ***/
+
+.bg-breadcrumb {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../img/laptop2.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.video {
+    position: relative;
+    padding-right: 70px;
+    padding-bottom: 70px;
+    border-radius: 10px;
+}
+
+.video .btn-play {
+    position: absolute;
+    z-index: 3;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -45%);
+    margin-left: -35px;
+    box-sizing: content-box;
+    display: block;
+    width: 32px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.video .btn-play:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: var(--bs-secondary);
+    border-radius: 50%;
+    animation: pulse-border 1500ms ease-out infinite;
+}
+
+.video .btn-play:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: var(--bs-primary);
+    border-radius: 50%;
+    transition: all 200ms;
+}
+
+.video .btn-play span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-left: 32px solid var(--bs-white);
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+}
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.gallery .tab-class .nav-item {
+    padding: 0 0 20px 0;
+}
+
+.gallery .tab-class .nav-item a.active {
+    background: var(--bs-primary) !important;
+}
+
+.gallery .tab-class .nav-item a.active span {
+    color: var(--bs-white) !important;
+}
+
+.gallery .gallery-img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery .gallery-img img {
+    transition: 0.5s;
+}
+
+.gallery .gallery-img:hover img {
+    transform: scale(1.3);
+}
+
+.gallery .gallery-img .gallery-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    transition: 0.5s;
+    opacity: 0;
+    z-index: 1;
+}
+
+.slidegeser {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slidegeser .slidegeser-item {
+    color: var(--bs-white);
+}
+
+.slidegeser .slidegeser-item .slidegeser-content {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.slidegeser .owl-carousel.slidegeser-carousel {
+    position: relative;
+}
+
+.slidegeser .owl-carousel.slidegeser-carousel .owl-nav {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    display: flex;
+    font-size: 40px;
+    color: var(--bs-white);
+}
+
+.slidegeser .owl-carousel.slidegeser-carousel .owl-nav .owl-prev {
+    margin-right: 40px;
+}
+
+.slidegeser .owl-carousel.slidegeser-carousel .owl-nav .owl-prev,
+.slidegeser .owl-carousel.slidegeser-carousel .owl-nav .owl-next {
+    transition: 0.5s;
+}
+
+.slidegeser .owl-carousel.slidegeser-carousel .owl-nav .owl-prev:hover,
+.slidegeser .owl-carousel.slidegeser-carousel .owl-nav .owl-next:hover {
+    color: var(--bs-primary);
+}
+
+.destinasi .destinasi-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.destinasi .destinasi-item .destinasi-text {
+    background: var(--bs-primary);
+}
+
+.destinasi .destinasi-item .destinasi-social {
+    position: absolute;
+    top: -180px;
+    left: 20px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.destinasi .destinasi-item:hover .destinasi-social {
+    top: 20px;
+    left: 20px;
+    opacity: 1;
+}
+
+.destinasi .destinasi-item .destinasi-img {
+    position: relative;
+    width: 100%;
+}
+
+.destinasi .destinasi-item .destinasi-img::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: 0.5s ease;
+}
+
+.destinasi .destinasi-item:hover .destinasi-img::after {
+    bottom: 0;
+    height: 100%;
+}
+
+.destinasi .destinasi-item .destinasi-text {
+    transition: 0.5s;
+}
+
+.destinasi .destinasi-item:hover .destinasi-text {
+    background: var(--bs-secondary);
+}
+
+.testimoni {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/bg1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.testimoni .testimoni-item {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.testimoni .owl-carousel.testimoni-carousel {
+    position: relative;
+}
+
+.testimoni .owl-carousel.testimoni-carousel .owl-nav {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    display: flex;
+    font-size: 40px;
+    color: var(--bs-white);
+}
+
+.testimoni .owl-carousel.testimoni-carousel .owl-nav .owl-prev {
+    margin-right: 40px;
+}
+
+.testimoni .owl-carousel.testimoni-carousel .owl-nav .owl-prev,
+.testimoni .owl-carousel.testimoni-carousel .owl-nav .owl-next {
+    transition: 0.5s;
+}
+
+.testimoni .owl-carousel.testimoni-carousel .owl-nav .owl-prev:hover,
+.testimoni .owl-carousel.testimoni-carousel .owl-nav .owl-next:hover {
+    color: var(--bs-primary);
+}
+
+.contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/appointment-background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contact .contact-form {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.footer {
+    background: var(--bs-dark);
+}
+
+.footer .footer-item a,
+.footer .footer-item p {
+    color: var(--bs-white);
+    line-height: 40px;
+    font-size: 17px;
+    transition: 0.5s;
+}
+
+.footer .footer-item a:hover {
+    letter-spacing: 2px;
+    color: var(--bs-primary) !important;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--bs-dark) !important;
+}
+
+.testimoni-carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.testimoni-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%;
+}
+
+.testimoni-item {
+    flex: 1 0 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    background: #222;
+    color: white;
+}
+
+.carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-controls button {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.carousel-controls button:hover {
+    background: white;
+    color: black;
+}
+
+/* ========== CSS untuk Grid Produk ========== */
+
+/* Container untuk grid produk */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* Column untuk produk */
+.col-md-4, .col-lg-4 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Membuat kolom dengan lebar yang sama pada desktop */
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+/* Card produk dengan tinggi yang sama */
+.product-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+/* Container untuk gambar produk */
+.product-img {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Tinggi tetap untuk semua gambar */
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Agar gambar tidak terpotong */
+}
+
+/* Informasi produk */
+.product-content {
+    padding: 20px;
+    flex-grow: 1; /* Mengisi ruang yang tersedia */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-specs {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    color: #0d6efd;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Container untuk tombol */
+.product-buttons {
+    margin-top: auto; /* Mendorong tombol ke bawah */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-buttons .btn {
+    width: 100%;
+}
+
+/* ========== CSS untuk Grid Produk ========== */
+
+/* Container untuk grid produk */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+/* Column untuk produk */
+.col-md-4, .col-lg-4 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Membuat kolom dengan lebar yang sama pada desktop */
+@media (min-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+/* Card produk dengan tinggi yang sama */
+.product-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+/* Container untuk gambar produk */
+.product-img {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Tinggi tetap untuk semua gambar */
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Agar gambar tidak terpotong */
+}
+
+/* Informasi produk */
+.product-content {
+    padding: 20px;
+    flex-grow: 1; /* Mengisi ruang yang tersedia */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000000; /* Menambahkan warna hitam untuk judul produk */
+}
+
+.product-specs {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    color: #0d6efd;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Container untuk tombol */
+.product-buttons {
+    margin-top: auto; /* Mendorong tombol ke bawah */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%; /* Memastikan lebar tombol konsisten */
+}
+
+/* Style untuk tombol-tombol */
+/* Style untuk tombol-tombol */
+.product-buttons .btn {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 25px; /* Mengubah dari 5px menjadi 25px untuk membuat sudut lebih bulat */
+}
+
+/* Menghilangkan margin-bottom dari tombol terakhir */
+.product-buttons .btn:last-child {
+    margin-bottom: 0;
+}
+
+/* Fix khusus untuk memastikan semua tombol sejajar */
+.product-card .product-content,
+.product-card .product-buttons {
+    width: 100%;
+}
+
+/* Memastikan container tombol konsisten di semua kartu */
+.col-md-4 .product-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+
+/*css rekomendasi/
+/* Combined and optimized CSS for product cards and buttons */
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-content {
+  padding: 15px;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.card-buttons .btn {
+  border-radius: 50px !important;
+  font-weight: bold !important;
+  padding: 15px 0 !important;
+  width: 100% !important;
+  display: block !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+.card-buttons .btn-primary {
+  background-color: #0066ff !important;
+  border-color: #0066ff !important;
+}
+
+.card-buttons .btn-danger {
+  background-color: #e53935 !important;
+  border-color: #e53935 !important;
+}
+
+/* Pastikan card memiliki tinggi yang sama */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Pastikan konten di dalam card memiliki struktur yang konsisten */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Buat container untuk informasi produk yang bisa mengembang */
+.product-info {
+  flex-grow: 1;
+}
+
+/* Buat container untuk grup tombol */
+.button-group {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Styling untuk tombol Beli */
+.btn-beli {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 0;
+  font-weight: bold;
+  width: 100%;
+}
+
+/* Styling untuk tombol Review */
+.btn-review {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 0;
+  font-weight: bold;
+  width: 100%;
+}
+
+/* CSS untuk memperbaiki tampilan tombol pada halaman laptop gaming */
+
+/* Styling untuk container tombol */
+.card-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+/* Styling untuk semua tombol */
+.card-buttons .btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 50px !important;
+  font-weight: bold !important;
+  padding: 10px 0 !important;
+  margin-bottom: 10px !important;
+}
+
+/* Hapus margin-bottom dari tombol terakhir */
+.card-buttons .btn:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Styling tombol Beli */
+.btn-primary {
+  background-color: #0066ff;
+  color: white;
+  border: none;
+}
+
+/* Styling tombol Review */
+.btn-danger {
+  background-color: #e93b3b;
+  color: white;
+  border: none;
+}
+
+/* Perbaikan untuk tombol yang berada di luar container card-buttons */
+.product-content > .btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 50px !important;
+  font-weight: bold !important;
+  padding: 10px 0 !important;
+  margin-bottom: 10px !important;
+}
+
+/* Perbaikan khusus untuk Dell Alienware yang memiliki struktur berbeda */
+.product-content > .btn-danger {
+  margin-bottom: 0 !important;
+}
+
+/* Media query untuk responsive */
+@media (max-width: 768px) {
+  .card-buttons .btn,
+  .product-content > .btn {
+    padding: 8px 0 !important;
+  }
+}
+
+/* Pastikan .product-card punya tinggi yang seragam dan fleksibel */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Kontainer isi produk */
+.product-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Penampung tombol berada di bawah */
+.card-buttons {
+  margin-top: auto; /* Dorong tombol ke bawah */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Tombol umum */
+.card-buttons .btn {
+  border-radius: 50px;
+  font-weight: bold;
+  padding: 10px 0;
+  width: 100%;
+  min-height: 44px;
+}
+
+/* Warna tombol khusus */
+.card-buttons .btn-primary {
+  background-color: #0066ff;
+  color: #fff;
+  border: none;
+}
+
+.card-buttons .btn-danger {
+  background-color: #e53935;
+  color: #fff;
+  border: none;
+}
+
+/* Styling tambahan */
+.product-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.product-specs {
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+.product-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0066ff;
+  margin: 12px 0;
+  margin-top: auto; /* Biarkan naik jika tombol butuh turun */
+}

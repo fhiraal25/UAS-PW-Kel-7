@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Tech World</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=PT+Serif:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <script src="style.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid sticky-top px-0">
+    <div class="container-fluid bg-light">
+      <div class="container px-0">
+        <nav class="navbar navbar-light navbar-expand-xl">
+          <a href="index.html" class="navbar-brand">
+            <h1 class="text-primary display-6">Ikhsan's Tech World</h1>
+          </a>
+          <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars text-primary"></span>
+          </button>
+          <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
+            <div class="navbar-nav ms-auto border-top">
+              <a href="index.html" class="nav-item nav-link active">Home</a>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Produk</a>
+                <div class="dropdown-menu m-0">
+                  <a href="asus.html" class="dropdown-item">Asus</a>
+                  <a href="acer.html" class="dropdown-item">Acer</a>
+                  <a href="lenovo.html" class="dropdown-item">Lenovo</a>
+                  <a href="DELL.html" class="dropdown-item">DELL</a>
+                  <a href="axioo.html" class="dropdown-item">Axioo</a>
+                </div>
+              </div>
+              <a href="rekomendasi.html" class="nav-item nav-link">Rekomendasi</a>
+              <a href="kontak.html" class="nav-item nav-link">Kontak</a>
+              <a href="daftar.html" class="nav-item nav-link">Daftar</a>
+              <a href="login.html" class="nav-item nav-link">Login</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid carousel-header px-0">
+    <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide 1: Produk Terbaru -->
+        <div class="carousel-item active">
+          <img src="img/laptop1.jpg" class="img-fluid" alt="Laptop Terbaru" />
+          <div class="carousel-caption">
+            <div class="p-3" style="max-width: 900px">
+              <h4 class="text-primary text-uppercase mb-3">Produk Terbaru</h4>
+              <h1 class="display-1 text-capitalize text-dark mb-3">
+                Laptop Canggih untuk Segala Kebutuhan
+              </h1>
+              <p class="mx-md-5 fs-4 px-4 mb-5 text-dark">
+                Temukan laptop terbaru dengan performa tinggi untuk kerja,
+                gaming, dan multimedia.
+              </p>
+              <div class="d-flex align-items-center justify-content-center">
+                <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-5" href="#produk">Lihat Produk</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Promo -->
+        <div class="carousel-item">
+          <img src="img/laptop2.jpg" class="img-fluid" alt="Promo Laptop" />
+          <div class="carousel-caption">
+            <div class="p-3" style="max-width: 900px">
+              <h4 class="text-primary text-uppercase mb-3" style="letter-spacing: 3px">
+                Promo Spesial
+              </h4>
+              <h1 class="display-1 text-capitalize text-dark mb-3">
+                Diskon Hingga 30%
+              </h1>
+              <p class="mx-md-5 fs-4 px-5 mb-5 text-dark">
+                Dapatkan harga terbaik untuk berbagai merk laptop favorit
+                Anda.
+              </p>
+              <div class="d-flex align-items-center justify-content-center">
+                <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-5" href="rekomendasi.html">Lihat
+                  Promo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Layanan -->
+        <div class="carousel-item">
+          <img src="img/laptop3.jpg" class="img-fluid" alt="Layanan Purna Jual" />
+          <div class="carousel-caption">
+            <div class="p-3" style="max-width: 900px">
+              <h4 class="text-primary text-uppercase mb-3" style="letter-spacing: 3px">
+                Layanan Terbaik
+              </h4>
+              <h1 class="display-1 text-capitalize text-dark">
+                Garansi & Dukungan Teknis
+              </h1>
+              <p class="mx-md-5 fs-4 px-5 mb-5 text-dark">
+                Nikmati garansi resmi dan layanan purna jual terpercaya dari
+                kami.
+              </p>
+              <div class="d-flex align-items-center justify-content-center">
+                <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-5" href="#layanan">Lihat
+                  Layanan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container-fluid about py-5">
+    <div class="container py-5">
+      <div class="bg-primary text-white text-center py-5">
+        <div class="container">
+          <h1 class="display-4 fw-bold">Tentang Kami</h1>
+          <p class="lead">
+            Kenali lebih dekat TokoLaptop – mitra terpercaya dalam memenuhi
+            kebutuhan teknologi Anda.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tentang Section -->
+      <div class="container py-5">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <img src="img/store.png" alt="Tentang Kami" class="img-fluid rounded shadow" />
+          </div>
+          <div class="col-md-6">
+            <h2 class="fw-bold mb-3">Siapa Kami?</h2>
+            <p>
+              Ikhsan's Tech World adalah toko laptop terpercaya yang telah
+              melayani pelanggan di seluruh Indonesia sejak 2020. Kami
+              menyediakan berbagai macam laptop berkualitas dari brand ternama
+              seperti ASUS, Acer, Lenovo, Dell, dan Axioo .
+            </p>
+            <p>
+              Kami percaya bahwa teknologi yang tepat dapat meningkatkan
+              produktivitas dan kreativitas Anda. Karena itu, kami selalu
+              menghadirkan produk terbaik dengan layanan purna jual yang
+              maksimal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid bg-primary text-white py-5" id="layanan">
+    <div class="container py-5">
+      <h2 class="text-center fw-bold mb-4">Kenapa Memilih Kami?</h2>
+      <div class="row text-center g-4">
+        <div class="col-md-4">
+          <div class="p-4 border rounded shadow-sm">
+            <h5 class="fw-bold">Produk Bergaransi</h5>
+            <p>
+              Semua produk original & bergaransi resmi dari distributor
+              terpercaya.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 border rounded shadow-sm">
+            <h5 class="fw-bold">Pengiriman Cepat</h5>
+            <p>Pengiriman cepat dan aman ke seluruh Indonesia.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 border rounded shadow-sm">
+            <h5 class="fw-bold">Layanan Pelanggan</h5>
+            <p>
+              Tim support kami siap membantu Anda sebelum dan sesudah
+              pembelian.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand yang Kami Jual -->
+  <div class="container py-5" id="produk">
+    <h2 class="text-center fw-bold mb-5">Brand yang Kami Jual</h2>
+    <div class="row text-center g-4">
+      <!-- ASUS -->
+      <div class="col-md-4">
+        <div class="p-4 border rounded shadow-sm h-100">
+          <img src="img/logo/asus.webp" alt="ASUS Logo" class="mb-3" style="max-height: 60px" />
+          <h5 class="fw-bold">ASUS</h5>
+          <p>
+            ASUS dikenal dengan inovasi dan daya tahan laptopnya, cocok untuk
+            kebutuhan pelajar hingga profesional.
+          </p>
+        </div>
+      </div>
+
+      <!-- ACER  -->
+      <div class="col-md-4">
+        <div class="p-4 border rounded shadow-sm h-100">
+          <img src="img/logo/acer.png" alt="ACER Logo" class="mb-3" style="max-height: 60px" />
+          <h5 class="fw-bold">ACER</h5>
+          <p>
+            Acer menawarkan performa andal dengan harga terjangkau, menjadikannya pilihan ideal untuk pelajar, pekerja
+            kantoran, hingga pengguna harian.
+          </p>
+        </div>
+      </div>
+
+      <!-- LENOVO -->
+      <div class="col-md-4">
+        <div class="p-4 border rounded shadow-sm h-100">
+          <img src="img/logo/lenovo.jpg" alt="LENOVO Logo" class="mb-3" style="max-height: 60px" />
+          <h5 class="fw-bold">LENOVO</h5>
+          <p>
+            Lenovo dikenal dengan desain yang ergonomis dan performa stabil, cocok untuk kebutuhan produktivitas,
+            bisnis, maupun pembelajaran jarak jauh.
+          </p>
+        </div>
+      </div>
+
+      <!-- DELL -->
+      <div class="col-md-4">
+        <div class="p-4 border rounded shadow-sm h-100">
+          <img src="img/DELL/LOGO DELL.png" alt="ASUS Logo" class="mb-3" style="max-height: 60px" />
+          <h5 class="fw-bold">DELL</h5>
+          <p>
+            Dell menghadirkan kualitas build yang solid dan kinerja tinggi, ideal untuk profesional, kreator konten,
+            hingga pengguna bisnis yang mengutamakan keandalan.
+          </p>
+        </div>
+      </div>
+
+
+      <!-- AXIOO -->
+      <div class="col-md-4">
+        <div class="p-4 border rounded shadow-sm h-100">
+          <img src="img/logo/LOGO AXIOO.png" alt="Acer Logo" class="mb-3" style="max-height: 60px" />
+          <h5 class="fw-bold">AXIOO</h5>
+          <p>
+            Axioo menawarkan laptop lokal dengan harga bersaing dan fitur fungsional, cocok untuk pelajar dan pengguna
+            yang membutuhkan perangkat komputasi sehari-hari.
+          </p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+
+  <div class="container-fluid bg-primary text-white py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-4">Apa Kata Pelanggan Kami</h2>
+      <div class="row g-4">
+        <!-- Testimoni 1 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+            <p class="mb-3 fst-italic">
+              "Pelayanannya cepat dan laptop sampai dalam kondisi sangat baik.
+              Terima kasih !"
+            </p>
+            <h6 class="fw-bold mb-0">Rizky Maulana</h6>
+            <small class="text-muted">Mahasiswa</small>
+          </div>
+        </div>
+
+        <!-- Testimoni 2 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+            <p class="mb-3 fst-italic">
+              "Banyak pilihan laptop sesuai kebutuhan kerja saya. Proses order
+              juga mudah."
+            </p>
+            <h6 class="fw-bold mb-0">Andini Permata</h6>
+            <small class="text-muted">Desainer Grafis</small>
+          </div>
+        </div>
+
+        <!-- Testimoni 2 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+            <p class="mb-3 fst-italic">
+              "Banyak pilihan laptop sesuai kebutuhan kerja saya. Proses order
+              juga mudah."
+            </p>
+            <h6 class="fw-bold mb-0">Bagus DanangHarimurti</h6>
+            <small class="text-muted">Desainer Grafis</small>
+          </div>
+        </div>
+
+        <!-- Testimoni 2 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+            <p class="mb-3 fst-italic">
+              "Banyak pilihan laptop sesuai kebutuhan kerja saya. Proses order
+              juga mudah."
+            </p>
+            <h6 class="fw-bold mb-0">Mutia Dwi Aprilia</h6>
+            <small class="text-muted">Desainer Grafis</small>
+          </div>
+        </div>
+
+        <!-- Testimoni 2 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+            <p class="mb-3 fst-italic">
+              "Laptopnya ringan dan cepat, sangat membantu untuk tugas sekolah dan belajar online. Harganya juga pas di
+              kantong pelajar!."
+            </p>
+            <h6 class="fw-bold mb-0">Naila Kirana</h6>
+            <small class="text-muted">Pelajar</small>
+          </div>
+        </div>
+
+        <!-- Testimoni 2 -->
+        <div class="col-md-4">
+          <div class="p-4 bg-white text-dark rounded shadow-sm h-100">
+            <p class="mb-3 fst-italic">
+              "Situs ini menyediakan banyak pilihan laptop untuk pelajar. Pesanannya gampang dan tanpa kendala."
+            </p>
+            <h6 class="fw-bold mb-0">Assyifa</h6>
+            <small class="text-muted">Pelajar</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container-fluid copyright py-4">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-md-0">
+          <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Ikhsan's Tech
+              World</a>, All right reserved.</span>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex justify-content-center">
+            <a href="https://www.facebook.com/profile.php?id=100015133152267"
+              class="btn btn-light btn-light-outline-0 btn-sm-square rounded-circle me-2"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/ikhsannrsptra"
+              class="btn btn-light btn-light-outline-0 btn-sm-square rounded-circle me-2"><i
+                class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/ikhsannrsptra?igsh=MXNrOGJxN3dqaXA2aQ=="
+              class="btn btn-light btn-light-outline-0 btn-sm-square rounded-circle me-2"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square rounded-circle back-to-top"><i
+      class="fa fa-arrow-up"></i></a>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ikhsan's Tech World - Rekomendasi</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=PT+Serif:wght@400;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+  <script src="style.js"></script>
+
+  <style>
+    .laptop-category {
+      display: none;
+    }
+
+    .laptop-category.active {
+      display: block;
+    }
+
+    .active-category {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown-item:hover {
+      background-color: #e9ecef;
+    }
+
+    .dropdown-item:active {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    /* Modal styles */
+    .product-modal {
+      display: none;
+      position: fixed;
+      z-index: 1050;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 0;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      animation: modalFadeIn 0.3s;
+    }
+
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      padding: 15px 20px;
+      border-bottom: 1px solid #dee2e6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-body {
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .modal-image {
+      flex: 0 0 40%;
+      padding-right: 20px;
+    }
+
+    .modal-image img {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    .modal-info {
+      flex: 0 0 60%;
+    }
+
+    .modal-title {
+      margin-top: 0;
+      color: #333;
+      font-weight: 700;
+    }
+
+    .modal-price {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0d6efd;
+      margin: 15px 0;
+    }
+
+    .modal-specs {
+      margin-bottom: 20px;
+    }
+
+    .modal-specs h5 {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .modal-specs ul {
+      padding-left: 20px;
+    }
+
+    .modal-description {
+      margin-bottom: 20px;
+    }
+
+    .modal-description h5 {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .modal-footer {
+      padding: 15px 20px;
+      border-top: 1px solid #dee2e6;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .close {
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #333;
+    }
+
+    .btn-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Responsive modal */
+    @media (max-width: 768px) {
+      .modal-body {
+        flex-direction: column;
+      }
+
+      .modal-image,
+      .modal-info {
+        flex: 0 0 100%;
+        padding-right: 0;
+      }
+
+      .modal-image {
+        margin-bottom: 20px;
+      }
+
+      .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .btn-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn-actions .btn {
+        width: 100%;
+      }
+    }
+
+    /* Styling for product card buttons */
+    .card-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .card-buttons .btn {
+      flex: 1;
+    }
+
+    .product-buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid sticky-top px-0">
+    <div class="container-fluid bg-light">
+      <div class="container px-0">
+        <nav class="navbar navbar-light navbar-expand-xl">
+          <a href="index.html" class="navbar-brand">
+            <h1 class="text-primary display-6">Ikhsan's Tech World</h1>
+          </a>
+          <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars text-primary"></span>
+          </button>
+          <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
+            <div class="navbar-nav ms-auto border-top">
+              <a href="index.html" class="nav-item nav-link">Home</a>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Produk</a>
+                <div class="dropdown-menu m-0">
+                  <a href="asus.html" class="dropdown-item">Asus</a>
+                  <a href="acer.html" class="dropdown-item">Acer</a>
+                  <a href="lenovo.html" class="dropdown-item">Lenovo</a>
+                  <a href="DELL.html" class="dropdown-item">DELL</a>
+                  <a href="axioo.html" class="dropdown-item">axioo</a>
+                </div>
+              </div>
+              <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Rekomendasi</a>
+                <div class="dropdown-menu m-0">
+                  <a href="#" class="dropdown-item" data-category="semua">Semua Laptop</a>
+                  <a href="#" class="dropdown-item" data-category="pelajar">Laptop Pelajar/Mahasiswa</a>
+                  <a href="#" class="dropdown-item" data-category="gaming">Laptop Gaming</a>
+
+                </div>
+              </div>
+              <a href="kontak.html" class="nav-item nav-link">Kontak</a>
+              <a href="daftar.html" class="nav-item nav-link">Daftar</a>
+              <a href="login.html" class="nav-item nav-link">Login</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid py-5">
+    <div class="container py-5">
+      <div class="container text-center my-5">
+        <h1 class="display-4 fw-bold">Rekomendasi Laptop Terbaik</h1>
+        <p class="lead">
+          Temukan laptop yang cocok dengan kebutuhanmu, dari kerja kantoran
+          hingga gaming berat.
+        </p>
+      </div>
+
+      <!-- Rekomendasi Laptop Semua -->
+      <div class="container laptop-category active" id="semua">
+        <div class="row g-4">
+          <!-- Asus 1 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop7.webp" alt="ASUS VivoBook 15" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">ASUS VivoBook 15</div>
+                <div class="product-specs">Intel i5, 8GB RAM, 512GB SSD, Layar 15.6"</div>
+                <div class="product-price">Rp8.499.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/-PQRLw-5RAw?si=7LgibUdkcPInrhWw" class="btn btn-danger" target="_blank"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Asus 2 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop8.jpg" alt="ASUS VivoBook E410" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">VivoBook E410</div>
+                <div class="product-specs">Intel Celeron N4500, 8GB RAM, 512GB, Layar 15.6"</div>
+                <div class="product-price">Rp5.149.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/ilOKsESJLlE?si=YpMcK-eDD3-HZe3X" class="btn btn-danger" target="_blank"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Asus 3 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop9.jpg" alt="ASUS Vivobook Go 14 (E1404)" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">ASUS Vivobook Go 14 (E1404)</div>
+                <div class="product-specs">AMD Ryzen 3 7320U, 8GB RAM, 512GB SSD</div>
+                <div class="product-price">Rp6.399.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/_pHSEXWxe_w?si=IXQnhb4jNwVEAzb-" class="btn btn-danger" target="_blank"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Acer 1 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/acer/laptop4.2.jpg" alt="Acer Predator Helios Neo 16 PHN16-71-72DN" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">Acer Predator Helios Neo 16 </div>
+                <div class="product-specs">Intel® Core™ i7-13700HX,16GB DDR5, 1TB SSD PCIe®,Layar 16"</div>
+                <div class="product-price">Rp26.779.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/SX4R539yQuc?si=af7topBrbnJ_DSWY" target="_blank" class="btn btn-danger"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Acer 2 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/acer/laptop5.jpg" alt="Acer Predator Helios 300 PH315-54" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">Acer Predator Helios 300 PH315-54</div>
+                <div class="product-specs">Intel® Core™ i7-11800H, 16GB DDR4, 512GB, Layar 15.6"</div>
+                <div class="product-price">Rp21.999.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/LUMT7jpb4WQ?si=_sMa7cFSWNuCzQEV" target="_blank" class="btn btn-danger"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Acer 3 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/acer/laptop6.jpg" alt="Acer Swift Edge SFA16-41" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">Acer Swift Edge SFA16-41</div>
+                <div class="product-specs">AMD Ryzen™ 5 6600U, 8GB RAM, 512GB SSD</div>
+                <div class="product-price">Rp14.987.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/tYzfbk7cedA?si=M6d3V3f1kSt_Mvom" class="btn btn-danger" target="_blank"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Laptop Pelajar/Mahasiswa -->
+      <div class="container laptop-category" id="pelajar">
+        <h2 class="section-title text-center mb-4">Laptop Pelajar/Mahasiswa</h2>
+
+        <div class="row g-4">
+          <!-- ASUS VivoBook 15 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop7.webp" alt="ASUS VivoBook 15" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">ASUS VivoBook 15</h3>
+                <div class="product-specs">Intel i5, 8GB RAM, 512GB SSD, Layar 15.6"</div>
+                <div class="product-price">Rp8.499.000</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/GveSP5eGegU?si=co_QPWiKO26ybn83" class="btn btn-danger w-100"
+                    target="_blank" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASUS VivoBook E410 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop8.jpg" alt="ASUS VivoBook E410" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">ASUS VivoBook E410</h3>
+                <div class="product-specs">Intel Celeron N4500, 8GB RAM, 512GB, Layar 15.6"</div>
+                <div class="product-price">Rp5.149.000</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/ilOKsESJLlE?si=YpMcK-eDD3-HZe3X" class="btn btn-danger w-100"
+                    target="_blank" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASUS Vivobook Go 14 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop9.jpg" alt="ASUS Vivobook Go 14 (E1404)" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">ASUS Vivobook Go 14 (E1404)</h3>
+                <div class="product-specs">AMD Ryzen 3 7320U, 8GB RAM, 512GB SSD</div>
+                <div class="product-price">Rp6.399.000</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/_pHSEXWxe_w?si=IXQnhb4jNwVEAzb-" class="btn btn-danger w-100"
+                    target="_blank" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASUS Chromebook C523 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop10.png" alt="ASUS Chromebook C523" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">ASUS Chromebook C523</h3>
+                <div class="product-specs">Intel Pentium Quad Core N4200, 8GB RAM, 64GB eMMC, Layar 15.6"</div>
+                <div class="product-price">Rp6.117.000</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/_pHSEXWxe_w?si=IXQnhb4jNwVEAzb-" class="btn btn-danger w-100"
+                    target="_blank" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASUS Chromebook C425 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop11.png" alt="ASUS Chromebook C425" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">ASUS Chromebook C425</h3>
+                <div class="product-specs">Intel Core m3, 8GB RAM, 128GB eMMC, Layar 14"</div>
+                <div class="product-price">Rp6.799.000</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/REqkFo0IzNI?si=RlYfWwEhYL0VTxR9" target="_blank"
+                    class="btn btn-danger w-100" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lenovo Ideapad Slim 1 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/lenovo/laptop18.webp" alt="Lenovo Ideapad Slim 1" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">Lenovo Ideapad Slim 1</h3>
+                <div class="product-specs">AMD Ryzen™ 3 7320U, 8GB LPDDR5 RAM, 512GB SSD, Layar 14"</div>
+                <div class="product-price">Rp5.045.000</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/UyYOLY3eOTk?si=acEqxbvE8RKCEY4q" target="_blank"
+                    class="btn btn-danger w-100" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASUS Chromebook Flip CX1 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop12.png" alt="ASUS Chromebook Flip CX1 (CX1500)" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">ASUS Chromebook Flip CX1 (CX1500)</h3>
+                <div class="product-specs">Intel® Celeron® N3350, 8GB LPDDR4, 128GB eMMC, Layar 15.6" Full HD (1920 x
+                  1080), touchscreen</div>
+                <div class="product-price">Rp3.800.000</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/REqkFo0IzNI?si=l3TGmLYHXVKp3MQW" target="_blank"
+                    class="btn btn-danger w-100" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dell Vostro 14 3420 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/DELL/laptop12.jpeg" alt="Dell Vostro 14 3420" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">Dell Vostro 14 3420</h3>
+                <div class="product-specs">Intel® Core™ i3-1115G4, 4GB RAM, 256GB SSD, Layar 14" HD</div>
+                <div class="product-price">Rp6.986.000</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/WIYg9JOJ1Os?si=GCxZPpRMBej8jN2H" target="_blank"
+                    class="btn btn-danger w-100" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Axioo Slimbook 14 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/axioo/laptop12.jpeg" alt="Axioo Slimbook 14" class="img-fluid" />
+              </div>
+              <div class="product-content">
+                <h3 class="product-title">Axioo Slimbook 14</h3>
+                <div class="product-specs">AMD Ryzen 5 3500U, 8GB DDR4 (dapat di-upgrade) RAM, Layar 14" Full HD, SSD
+                </div>
+                <div class="product-price">Rp5.932.510</div>
+                <div class="product-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary w-100"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/DoTmA5cjtJ4?si=x6yqXr3zKCRD9Egm" target="_blank"
+                    class="btn btn-danger w-100" style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Laptop Gaming -->
+      <div class="container laptop-category" id="gaming">
+        <div class="row g-4">
+          <!-- Gaming Laptop 1 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/acer/laptop4.2.jpg" alt="Acer Predator Helios Neo 16 PHN16-71-72DN" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">Acer Predator Helios Neo 16 </div>
+                <div class="product-specs">Intel® Core™ i7-13700HX,RTX 4070, 16GB DDR5, 1TB SSD, NVIDIA RTX 4070 8GB
+                </div>
+                <div class="product-price">Rp26.779.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/SX4R539yQuc?si=af7topBrbnJ_DSWY" target="_blank" class="btn btn-danger"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gaming Laptop 2 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/acer/laptop5.jpg" alt="Acer Predator Helios 300 PH315-54" />
+              </div>
+              <div class="card-buttons">
+                <div class="product-title">Acer Predator Helios 300 PH315-54</div>
+                <div class="product-specs">Intel® Core™ i7-11800H, 16GB DDR4, 512GB SSD, NVIDIA RTX 3060 6GB</div>
+                <div class="product-price">Rp21.999.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/LUMT7jpb4WQ?si=_sMa7cFSWNuCzQEV" target="_blank" class="btn btn-danger"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Gaming Laptop 3 - ASUS ROG Strix G15 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop10.jpg" alt="ASUS ROG Strix G15" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">ASUS ROG Strix G15</div>
+                <div class="product-specs">AMD Ryzen 7 6800H, 16GB RAM, 1TB SSD, NVIDIA RTX 3070 8GB</div>
+                <div class="product-price">Rp23.499.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/n3Dlt_z8iVw?si=WFWtcUaxDlKUt10z" class="btn btn-danger" target="_blank"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Asus 5 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/asus/laptop9.1.jpg" alt="ASUS Gaming V16 (V3607V)" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">ASUS Gaming V16 (V3607V)</div>
+                <div class="product-specs"> Intel® Core™ 5, RTX 4050 , 16GB DDR5 SO-DIMM (dapat di-upgrade), 512GB M.2
+                  NVMe PCIe 4.0 SSD</div>
+                <div class="product-price">Rp12.999.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/GdpdNKIFs0s?si=vuI7gj8CvhKRR7kl" class="btn btn-danger" target="_blank"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- axioo 6 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/axioo/laptop6.webp" alt="Axioo Pongo Studio X" />
+              </div>
+              <div class="product-content">
+                <div class="product-title"> Axioo Pongo Studio X</div>
+                <div class="product-specs">Intel® Core™ i9-13900H, RTX™ 4070, 32GB DDR5 (2x16GB), dapat di-upgrade
+                  hingga 64GB RAM, 1TB SSD M.2 PCIe Gen 4x4 NVMe, Layar 16 inc"</div>
+                <div class="product-price">Rp29.999.000</div>
+                <div class="card-buttons">
+                  <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                    Beli
+                  </a>
+                  <a href="https://youtu.be/FAG1B-lIcyI?si=FDgYbeKNWkq8GJHb" class="btn btn-danger" target="_blank"
+                    style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                    Tonton Review di YouTube
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- dell 6 -->
+          <div class="col-md-4">
+            <div class="product-card">
+              <div class="product-img">
+                <img src="img/DELL/laptop7.png" alt="Dell Alienware x17 R2" />
+              </div>
+              <div class="product-content">
+                <div class="product-title">Dell Alienware x17 R2</div>
+                <div class="product-specs">Intel® Core™ i9-12900HK, 64GB DDR5 RAM, 1TB SSDC, Layar 17.3 FHD"</div>
+                <div class="product-price">Rp26.799.000</div>
+                <div class="card-buttons"></div>
+                <a href="https://wa.me/628983052203" target="_blank" class="btn btn-primary"
+                  style="border-radius: 50px; font-weight: bold; padding: 10px 0; margin-bottom: 10px;">
+                  Beli
+                </a>
+                <a href="https://youtu.be/K2Bm1YzI-_E?si=wXUJ8jaw6RI-7Fzd" class="btn btn-danger" target="_blank"
+                  style="border-radius: 50px; font-weight: bold; padding: 10px 0;">
+                  Tonton Review di YouTube
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- JavaScript for category switching -->
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            // Get all category links
+            const categoryLinks = document.querySelectorAll('.dropdown-item[data-category]');
+
+            // Add click event for each link
+            categoryLinks.forEach(link => {
+              link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Get selected category
+                const category = this.getAttribute('data-category');
+
+                // Hide all categories
+                document.querySelectorAll('.laptop-category').forEach(div => {
+                  div.classList.remove('active');
+                });
+
+                // Show selected category
+                document.getElementById(category).classList.add('active');
+
+                // Update active link
+                categoryLinks.forEach(link => {
+                  link.classList.remove('active-category');
+                });
+                this.classList.add('active-category');
+              });
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid copyright py-4">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6 text-center text-md-start mb-md-0">
+          <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Ikhsan's Tech
+              World</a>, All right reserved.</span>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex justify-content-center justify-content-md-end">
+            <a href="https://www.facebook.com/profile.php?id=100015133152267"
+              class="btn btn-light btn-light-outline-0 btn-sm-square rounded-circle me-2"><i
+                class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/ikhsannrsptra"
+              class="btn btn-light btn-light-outline-0 btn-sm-square rounded-circle me-2"><i
+                class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/ikhsannrsptra?igsh=MXNrOGJxN3dqaXA2aQ=="
+              class="btn btn-light btn-light-outline-0 btn-sm-square rounded-circle me-2"><i
+                class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square rounded-circle back-to-top"><i
+      class="fa fa-arrow-up"></i></a>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
